@@ -7,6 +7,7 @@ public class Player : Unit
     public static Player player;
     public float immortalFramesCount;
     public bool immortalFrames;
+    [SerializeField]
     SpriteRenderer sprite;
 	private void Awake()
 	{
@@ -16,7 +17,7 @@ public class Player : Unit
     {
         weapon_1 = GetComponentInChildren<Weapon>();
         //GameManager.player = this.gameObject;
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
         //HpSlider.maxValue = HpMax;
         //ManaSlider.maxValue = ManaMax;
         hp = HpCurrent;
@@ -26,6 +27,7 @@ public class Player : Unit
     void Update()
     {
         EventSystem.reCalculatePlayerStats();
+        regen();
     }
     public override void reciveDamage(float dmg)
     {
@@ -33,7 +35,7 @@ public class Player : Unit
         if (immortalFrames == false)
         {
             immortalFrames = true;
-            //StartCoroutine(immortal());
+            StartCoroutine(immortal());
             base.reciveDamage(dmg);
         }
     }

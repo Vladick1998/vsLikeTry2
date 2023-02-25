@@ -112,8 +112,8 @@ public class Unit : MonoBehaviour
 	}
 	public void regen()
 	{
-		hp += (HpMax * HpRegenPercent + HpRegen) * Time.deltaTime;
-		mp += (ManaMax * ManaRegenPercent + ManaRegen) * Time.deltaTime;
+		hp += (HpMax / 100 * HpRegenPercent + HpRegen) * Time.deltaTime;
+		mp += (ManaMax / 100 * ManaRegenPercent + ManaRegen) * Time.deltaTime;
 	}
 	virtual public void reciveDamage(float dmg)
 	{

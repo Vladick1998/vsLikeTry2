@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e05af0f9a13ce24a8d718ae658c874c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: {fileID: 0}
   bulletSpeed: 2
   rb: {fileID: 56525969}
   timeBeforeDead: 0
@@ -453,7 +454,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1483556882}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &670162801
 CircleCollider2D:
@@ -806,6 +807,7 @@ GameObject:
   - component: {fileID: 1413973904}
   - component: {fileID: 1413973903}
   - component: {fileID: 1413973902}
+  - component: {fileID: 1413973905}
   m_Layer: 0
   m_Name: Weapon_1
   m_TagString: Untagged
@@ -828,7 +830,7 @@ MonoBehaviour:
   skillState: 0
   purpose: 0
   spriteRenderer: {fileID: 1413973903}
-  baseAttackDamage: 0
+  baseAttackDamage: 5
   baseAttackSpeed: 1.5
   baseSpread: 0
   baseRange: 7
@@ -840,6 +842,7 @@ MonoBehaviour:
   attackDamage: 0
   canAttack: 0
   bullet: {fileID: 3102442684559077864, guid: 4ae3646147c2e7b418fed63b32007dda, type: 3}
+  damage: {fileID: 1413973905}
 --- !u!212 &1413973903
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -907,6 +910,24 @@ Transform:
   m_Father: {fileID: 767012138}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413973905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413973901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cedf1e83e65e3e4fa5c0068d86e165f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physDamage: 0
+  fireDamage: 0
+  coldDamage: 0
+  lightningDamage: 0
+  lightDamage: 0
+  darkDamage: 0
 --- !u!1 &1437820985
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +971,7 @@ MonoBehaviour:
   ManaSlider: {fileID: 0}
   HpMax: 100
   HpCurrent: 100
-  weapon_1: {fileID: 0}
+  weapon_1: {fileID: 1919518070}
   HpRegen: 0
   HpRegenPercent: 0
   HpVampiric: 0
@@ -959,8 +980,8 @@ MonoBehaviour:
   ManaRegen: 0
   ManaRegenPercent: 0
   ManaVampiric: 0
-  AttackDmgFlat: 0
-  AttackDmgPercent: 0
+  AttackDmgFlat: 5
+  AttackDmgPercent: 50
   AttackSpeed: 0
   CastDmgFlat: 0
   CastDmgPercent: 0
@@ -973,8 +994,9 @@ MonoBehaviour:
   MoveSpeed: 5
   knockbackForce: 0
   Magnet: {fileID: 0}
-  immortalFramesCount: 0
+  immortalFramesCount: 1.5
   immortalFrames: 0
+  sprite: {fileID: 1359471550}
 --- !u!61 &1437820987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1282,8 +1304,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 670162800}
   - {fileID: 1718632533}
+  - {fileID: 670162800}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1383,7 +1405,7 @@ MonoBehaviour:
   ManaSlider: {fileID: 0}
   HpMax: 100
   HpCurrent: 100
-  weapon_1: {fileID: 0}
+  weapon_1: {fileID: 1413973902}
   HpRegen: 0
   HpRegenPercent: 0
   HpVampiric: 0
@@ -1392,8 +1414,8 @@ MonoBehaviour:
   ManaRegen: 0
   ManaRegenPercent: 0
   ManaVampiric: 0
-  AttackDmgFlat: 0
-  AttackDmgPercent: 0
+  AttackDmgFlat: 5
+  AttackDmgPercent: 50
   AttackSpeed: 0
   CastDmgFlat: 0
   CastDmgPercent: 0
@@ -1508,7 +1530,7 @@ Transform:
   m_Children:
   - {fileID: 767012138}
   m_Father: {fileID: 1483556882}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1718632534
 SpriteRenderer:
@@ -1658,6 +1680,7 @@ GameObject:
   - component: {fileID: 1919518068}
   - component: {fileID: 1919518069}
   - component: {fileID: 1919518070}
+  - component: {fileID: 1919518071}
   m_Layer: 0
   m_Name: Weapon_1
   m_TagString: Untagged
@@ -1747,7 +1770,7 @@ MonoBehaviour:
   skillState: 0
   purpose: 0
   spriteRenderer: {fileID: 1919518069}
-  baseAttackDamage: 0
+  baseAttackDamage: 5
   baseAttackSpeed: 1.5
   baseSpread: 0
   baseRange: 5
@@ -1759,6 +1782,25 @@ MonoBehaviour:
   attackDamage: 0
   canAttack: 0
   bullet: {fileID: 3102442684559077864, guid: 4ae3646147c2e7b418fed63b32007dda, type: 3}
+  damage: {fileID: 1919518071}
+--- !u!114 &1919518071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919518067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cedf1e83e65e3e4fa5c0068d86e165f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physDamage: 0
+  fireDamage: 0
+  coldDamage: 0
+  lightningDamage: 0
+  lightDamage: 0
+  darkDamage: 0
 --- !u!1 &1924341673
 GameObject:
   m_ObjectHideFlags: 3
