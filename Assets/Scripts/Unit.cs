@@ -78,13 +78,17 @@ public class Unit : MonoBehaviour
 	#endregion
 	#region Attack\Cast
 	[Header("Attack stats")]
-	public float AttackDmgFlat;
-	public float AttackDmgPercent;
-	public float AttackSpeed;
+	public float attackDmgFlat;
+	public float attackDmgPercent;
+	public float attackSpeed;
 
-	public float CastDmgFlat;
-	public float CastDmgPercent;
-	public float CastSpeed;
+	public float fireDmgFlat;
+	public float coldDmgFlat;
+	public float lightningDmgFlat;
+	public float lightDmgFlat;
+	public float darkDmgFlat;
+	public float elementalDmgPercent;
+	public float castSpeed;
 	#endregion
 	#region Defence
 	[Header("Deffence stats")]
@@ -117,6 +121,7 @@ public class Unit : MonoBehaviour
 	}
 	virtual public void reciveDamage(float dmg)
 	{
+		Debug.Log(this.gameObject + " -> recive damage = " + dmg);
 		hp -= dmg;
 	}
 	public enum UnitRace

@@ -24,6 +24,14 @@ public class Weapon : MonoBehaviour
 	[Header("Base Weapon Stats")]
 	public float baseAttackDamage;
 	public float baseAttackSpeed;
+	[Space]
+	public float basefireDmgFlat;
+	public float basecoldDmgFlat;
+	public float baselightningDmgFlat;
+	public float baselightDmgFlat;
+	public float basedarkDmgFlat;
+	public float basecastSpeed;
+	[Space]
 	public float baseSpread;
 	public float baseRange;
 	public float baseColldown;
@@ -31,8 +39,6 @@ public class Weapon : MonoBehaviour
 	[Space]
 	public Transform handRotation;
 	public Unit unit;
-
-	[Space]
 	[Header("Stats")]
 	public float attackSpeed;
 	public float attackDamage;

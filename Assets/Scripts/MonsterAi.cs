@@ -72,6 +72,7 @@ public class MonsterAi : MonoBehaviour
 		if (target!=null)
 			bodyRotation();
 	}
+	Coroutine attackCoroutine;
 	public IEnumerator thinker()
 	{
 		while (true)
@@ -86,9 +87,12 @@ public class MonsterAi : MonoBehaviour
 				SkillChoise();
 				move = StartCoroutine(moveTo());
 				Vector3 distance = lastSeenPos - transform.position;
-				if (distance.sqrMagnitude <= currentSkill.baseRange +1.5f)
+				if (distance.sqrMagnitude <= currentSkill.baseRange + 1.5f && attackCoroutine == null)
+					attackCoroutine = StartCoroutine(AttackCourutine());
+				else if (attackCoroutine != null)
 				{
-					currentSkill.attack(target.transform.position);
+					StopCoroutine(attackCoroutine);
+					attackCoroutine = null;
 				}
 			}
 			else if (lastSeenPos != null)
@@ -99,6 +103,15 @@ public class MonsterAi : MonoBehaviour
 			yield return new WaitForSeconds(thinkRate);
 		}
 	}
+	IEnumerator AttackCourutine()
+	{
+		while (true)
+		{
+			currentSkill.attack(target.transform.position);
+			yield return new WaitForFixedUpdate();
+		}
+	}
+
 	private void bodyRotation()
 	{
 		//Debug.Log(transform.position.x+"-"+ Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()).x);

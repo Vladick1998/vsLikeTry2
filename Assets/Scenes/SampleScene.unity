@@ -972,8 +972,8 @@ MonoBehaviour:
   HpMax: 100
   HpCurrent: 100
   weapon_1: {fileID: 1919518070}
-  HpRegen: 0
-  HpRegenPercent: 0
+  HpRegen: 5
+  HpRegenPercent: 5
   HpVampiric: 0
   ManaMax: 0
   ManaCurrent: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   HpMax: 100
   HpCurrent: 100
   weapon_1: {fileID: 1413973902}
-  HpRegen: 0
+  HpRegen: 10
   HpRegenPercent: 0
   HpVampiric: 0
   ManaMax: 0
