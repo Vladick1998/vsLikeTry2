@@ -156,10 +156,10 @@ public class MonsterAi : MonoBehaviour
 			Vector3 direction = (target.transform.position - transform.position).normalized;
 			direction.z = transform.position.z;
 			Vector3 distance = target.transform.position - transform.position;
-			if ((int)(distance.sqrMagnitude - currentSkill.baseRange) != 0)
+			if (Mathf.Abs(distance.sqrMagnitude - currentSkill.baseRange) >= 1)
 				if (distance.sqrMagnitude > currentSkill.baseRange)
 					rb.MovePosition(transform.position + direction * unit.MoveSpeed * Time.deltaTime);
-				else
+				else 
 					rb.MovePosition(transform.position - direction * unit.MoveSpeed * Time.deltaTime);
 			lastSeenPos = target.transform.position;
 			yield return new WaitForFixedUpdate();
@@ -172,8 +172,6 @@ public class MonsterAi : MonoBehaviour
 			Vector3 distance = lastSeenPos - transform.position;
 			if (distance.sqrMagnitude < 1)
 				lastSeenPos = Vector3.zero;
-
-
 			yield return new WaitForFixedUpdate();
 		}
 	}

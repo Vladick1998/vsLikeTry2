@@ -29,11 +29,11 @@ public class Player : Unit
     }
     public override void reciveDamage(float dmg)
     {
-        //Debug.Log("penis");
+        Debug.Log("DMG-> "+dmg);
         if (immortalFrames == false)
         {
             immortalFrames = true;
-            StartCoroutine(immortal());
+            //StartCoroutine(immortal());
             base.reciveDamage(dmg);
         }
     }

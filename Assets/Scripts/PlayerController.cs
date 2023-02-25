@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 			if (bodystate != BodyState.cantMove && player.weapon_1.canAttack && handState == HandState.canAttack)
 			{
 				animator.Play("Attack", 1);
-				player.weapon_1.attackPrimary();
+				player.weapon_1.attack(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
 			}
 			yield return new WaitForFixedUpdate();
 		}

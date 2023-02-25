@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 	[Header("Weapon component references")]
 	public SpriteRenderer spriteRenderer;
 
-	[Header("Base Stats")]
+	[Header("Base Weapon Stats")]
 	public float baseAttackDamage;
 	public float baseAttackSpeed;
 	public float baseSpread;

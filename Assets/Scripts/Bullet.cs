@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+	public Damage damage;
 	[SerializeField] float bulletSpeed;
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] float timeBeforeDead;
@@ -17,14 +18,18 @@ public class Bullet : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-	
 		Vector3 vector = transform.TransformDirection(new Vector2(1, 0) * bulletSpeed * Time.fixedDeltaTime);
-		rb.MovePosition(rb.position + new Vector2(vector.x, vector.y)*bulletSpeed*Time.fixedDeltaTime);
+		rb.MovePosition(rb.position + new Vector2(vector.x, vector.y) * bulletSpeed * Time.fixedDeltaTime);
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject != parrent && (collision.gameObject.tag == "Unit" || collision.gameObject.tag == "Ground" ))
+		if (collision.gameObject != parrent && (collision.gameObject.tag == "Unit" || collision.gameObject.tag == "Ground"))
+		{
+			Unit unit = collision.gameObject.GetComponent<Unit>();
+			if (unit != null)
+				unit.reciveDamage(damage.CalculateRecivedDamage(unit));
 			Destroy(gameObject);
+		}
 		//Debug.Log("trigger" + collision.gameObject);
 	}
 }

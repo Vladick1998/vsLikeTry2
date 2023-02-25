@@ -58,7 +58,6 @@ public class Unit : MonoBehaviour
 	public float HpRegen;
 	public float HpRegenPercent;
 	public float HpVampiric;
-
 	public float ManaMax;
 	public float ManaCurrent;
 	public float mp
