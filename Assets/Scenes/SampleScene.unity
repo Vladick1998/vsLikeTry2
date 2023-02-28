@@ -830,8 +830,14 @@ MonoBehaviour:
   skillState: 0
   purpose: 0
   spriteRenderer: {fileID: 1413973903}
-  baseAttackDamage: 5
+  baseAttackDamage: 0
   baseAttackSpeed: 1.5
+  basefireDmgFlat: 0
+  basecoldDmgFlat: 0
+  baselightningDmgFlat: 0
+  baselightDmgFlat: 0
+  basedarkDmgFlat: 0
+  basecastSpeed: 0
   baseSpread: 0
   baseRange: 7
   baseColldown: 0
@@ -980,15 +986,19 @@ MonoBehaviour:
   ManaRegen: 0
   ManaRegenPercent: 0
   ManaVampiric: 0
-  AttackDmgFlat: 5
-  AttackDmgPercent: 50
-  AttackSpeed: 0
-  CastDmgFlat: 0
-  CastDmgPercent: 0
-  CastSpeed: 0
+  attackDmgFlat: 100
+  attackDmgPercent: 0
+  attackSpeed: 0
+  fireDmgFlat: 0
+  coldDmgFlat: 0
+  lightningDmgFlat: 0
+  lightDmgFlat: 0
+  darkDmgFlat: 0
+  elementalDmgPercent: 0
+  castSpeed: 0
   Evade: 0
-  Armour: 0
-  ElenentalResistanse: 0
+  Armour: 10
+  ElenentalResistanse: 70
   BlockFlat: 0
   BlockPercent: 0
   MoveSpeed: 5
@@ -1414,12 +1424,16 @@ MonoBehaviour:
   ManaRegen: 0
   ManaRegenPercent: 0
   ManaVampiric: 0
-  AttackDmgFlat: 5
-  AttackDmgPercent: 50
-  AttackSpeed: 0
-  CastDmgFlat: 0
-  CastDmgPercent: 0
-  CastSpeed: 0
+  attackDmgFlat: 0
+  attackDmgPercent: 0
+  attackSpeed: 100
+  fireDmgFlat: 0
+  coldDmgFlat: 0
+  lightningDmgFlat: 0
+  lightDmgFlat: 100
+  darkDmgFlat: 0
+  elementalDmgPercent: 0
+  castSpeed: 0
   Evade: 0
   Armour: 0
   ElenentalResistanse: 0
@@ -1770,8 +1784,14 @@ MonoBehaviour:
   skillState: 0
   purpose: 0
   spriteRenderer: {fileID: 1919518069}
-  baseAttackDamage: 5
+  baseAttackDamage: 0
   baseAttackSpeed: 1.5
+  basefireDmgFlat: 0
+  basecoldDmgFlat: 0
+  baselightningDmgFlat: 0
+  baselightDmgFlat: 0
+  basedarkDmgFlat: 0
+  basecastSpeed: 0
   baseSpread: 0
   baseRange: 5
   baseColldown: 0

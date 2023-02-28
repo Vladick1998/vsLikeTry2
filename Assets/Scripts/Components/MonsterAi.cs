@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class MonsterAi : MonoBehaviour
@@ -103,12 +104,20 @@ public class MonsterAi : MonoBehaviour
 			yield return new WaitForSeconds(thinkRate);
 		}
 	}
+	private void OnDestroy()
+	{
+		StopAllCoroutines();
+	}
 	IEnumerator AttackCourutine()
 	{
 		while (true)
 		{
-			currentSkill.attack(target.transform.position);
-			yield return new WaitForFixedUpdate();
+			if (currentSkill != null)
+			{
+				currentSkill.attack(target.transform.position);
+				yield return new WaitForFixedUpdate();
+			}
+			else break;
 		}
 	}
 
@@ -136,9 +145,7 @@ public class MonsterAi : MonoBehaviour
 		for (int i = 0; i < skills.Count; i++)
 		{
 			if (currentSkill == null || skills[i].baseAttackDamage > currentSkill.baseAttackDamage && skills[i].skillState == 0)
-			{
 				currentSkill = skills[i];
-			}
 		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)

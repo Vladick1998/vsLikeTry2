@@ -50,7 +50,10 @@ public class Unit : MonoBehaviour
 			{
 				HpCurrent = value;
 				if (HpCurrent <= 0)
+				{
+					StopAllCoroutines();
 					Destroy(gameObject);
+				}
 			}
 			//UiUpd();
 		}

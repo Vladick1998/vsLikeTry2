@@ -23,8 +23,13 @@ public class Damage : MonoBehaviour
 	public float CalculateRecivedDamage(Unit attacketUnit)
 	{
 		float damage = 0;
-		Debug.Log((((attacketUnit.Armour * physArmourEffectivnes) / (1 + attacketUnit.Armour * physArmourEffectivnes))));
+
 		damage += physDamage - attacketUnit.BlockFlat - (physDamage * ((attacketUnit.Armour * physArmourEffectivnes) / (1 + attacketUnit.Armour * physArmourEffectivnes)));
+		damage += fireDamage - (fireDamage/100 * attacketUnit.ElenentalResistanse);
+		damage += coldDamage - (coldDamage / 100 * attacketUnit.ElenentalResistanse);
+		damage += lightningDamage - (lightningDamage / 100 * attacketUnit.ElenentalResistanse);
+		damage += (lightDamage - (lightDamage / 100 * (attacketUnit.ElenentalResistanse/2)) - (lightDamage * ((attacketUnit.Armour * physArmourEffectivnes) / (1 + attacketUnit.Armour * physArmourEffectivnes))));
+		damage += darkDamage - attacketUnit.BlockFlat * 2;
 		return damage;
 	}
 }
