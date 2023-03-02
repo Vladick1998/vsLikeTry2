@@ -113,6 +113,10 @@ public class Unit : MonoBehaviour
 	public CircleCollider2D Magnet;
 	#endregion
 	#endregion
+	private void Start()
+	{
+		reCalcStats();
+	}
 	void Update()
 	{
 		regen();
@@ -121,6 +125,10 @@ public class Unit : MonoBehaviour
 	{
 		hp += (HpMax / 100 * HpRegenPercent + HpRegen) * Time.deltaTime;
 		mp += (ManaMax / 100 * ManaRegenPercent + ManaRegen) * Time.deltaTime;
+	}
+	public void reCalcStats()
+	{
+		GetComponent<Damage>().CalculateAttackDamage(this);
 	}
 	virtual public void reciveDamage(float dmg)
 	{

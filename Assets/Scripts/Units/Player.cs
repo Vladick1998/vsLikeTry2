@@ -15,6 +15,7 @@ public class Player : Unit
     }
 	void Start()
     {
+        EventSystem.playerChangeStats.AddListener(reCalcStats);
         weapon_1 = GetComponentInChildren<Weapon>();
         //GameManager.player = this.gameObject;
         //sprite = GetComponent<SpriteRenderer>();
@@ -22,11 +23,12 @@ public class Player : Unit
         //ManaSlider.maxValue = ManaMax;
         hp = HpCurrent;
         mp = ManaCurrent;
+        reCalcStats();
        
     }
     void Update()
     {
-        EventSystem.reCalculatePlayerStats();
+        //EventSystem.reCalculatePlayerStats();
         regen();
     }
     public override void reciveDamage(float dmg)

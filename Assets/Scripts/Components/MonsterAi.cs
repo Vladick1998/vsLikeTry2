@@ -19,8 +19,8 @@ public class MonsterAi : MonoBehaviour
 	public GameObject target;
 	Vector3 lastSeenPos;
 	[Header("Skills")]
-	public List<Weapon> skills;
-	public Weapon currentSkill;
+	public List<Skill> skills;
+	public Skill currentSkill;
 	[Space]
 
 	[SerializeField]
@@ -114,7 +114,7 @@ public class MonsterAi : MonoBehaviour
 		{
 			if (currentSkill != null)
 			{
-				currentSkill.attack(target.transform.position);
+				currentSkill.Cast(target.transform.position);
 				yield return new WaitForFixedUpdate();
 			}
 			else break;

@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Item
 {
 	public enum UseState
 	{
 		Ready,
 		Colldown
 	}
-	public UseState skillState;
-	public enum Purpose
-	{
-		Attack,
-		Move,
-		Buff,
-		Heal
-	}
-	public Purpose purpose;
+	
 	[Header("Weapon component references")]
 	public SpriteRenderer spriteRenderer;
 
@@ -34,8 +26,6 @@ public class Weapon : MonoBehaviour
 	[Space]
 	public float baseSpread;
 	public float baseRange;
-	public float baseColldown;
-	public float baseManaCost;
 	[Space]
 	public Transform handRotation;
 	public Unit unit;

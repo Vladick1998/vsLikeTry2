@@ -11,14 +11,20 @@ public class Damage : MonoBehaviour
 	public float lightningDamage;
 	public float lightDamage;
 	public float darkDamage;
+	public float castSpeed;
+	public float attackSpeed;
+	public int bulletCount;
+	//calculate unit stats + weaponstats
 	public void CalculateAttackDamage(Unit attackerUnit)
 	{
+		castSpeed = attackerUnit.castSpeed;
+		attackSpeed = attackerUnit.attackSpeed;
 		physDamage = (attackerUnit.weapon_1.baseAttackDamage + attackerUnit.attackDmgFlat) + ((attackerUnit.weapon_1.baseAttackDamage + attackerUnit.attackDmgFlat) / 100 * attackerUnit.attackDmgPercent);
 		fireDamage = (attackerUnit.weapon_1.basefireDmgFlat + attackerUnit.fireDmgFlat) + ((attackerUnit.weapon_1.basefireDmgFlat + attackerUnit.fireDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
 		coldDamage = (attackerUnit.weapon_1.basecoldDmgFlat + attackerUnit.coldDmgFlat) + ((attackerUnit.weapon_1.basecoldDmgFlat + attackerUnit.coldDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
 		lightningDamage = (attackerUnit.weapon_1.baselightningDmgFlat + attackerUnit.lightningDmgFlat) + ((attackerUnit.weapon_1.baselightningDmgFlat + attackerUnit.lightningDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
-		lightDamage = (attackerUnit.weapon_1.baselightDmgFlat + attackerUnit.lightDmgFlat) + ((attackerUnit.weapon_1.baselightDmgFlat + attackerUnit.lightDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
-		darkDamage = (attackerUnit.weapon_1.basedarkDmgFlat + attackerUnit.darkDmgFlat) + ((attackerUnit.weapon_1.basedarkDmgFlat + attackerUnit.darkDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
+		lightDamage = (attackerUnit.weapon_1.baselightDmgFlat + attackerUnit.lightDmgFlat) + ((attackerUnit.weapon_1.baselightDmgFlat + attackerUnit.lightDmgFlat) / 100 * (attackerUnit.elementalDmgPercent/2 + attackerUnit.attackDmgPercent/2));
+		darkDamage = (attackerUnit.weapon_1.basedarkDmgFlat + attackerUnit.darkDmgFlat);
 	}
 	public float CalculateRecivedDamage(Unit attacketUnit)
 	{
