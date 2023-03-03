@@ -32,6 +32,7 @@ public class Skill : MonoBehaviour
     public enum Purpose
     {
         Attack,
+        Cast,
         Move,
         Buff,
         Heal
