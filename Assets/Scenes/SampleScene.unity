@@ -838,6 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   race: 0
+  stats: {fileID: 0}
   LevelCurrent: 0
   XpCurrent: 0
   XpToLevelUp: 0
@@ -1116,8 +1117,8 @@ MonoBehaviour:
   lightningDamage: 0
   lightDamage: 0
   darkDamage: 0
-  castSpeed: 0
-  attackSpeed: 0
+  baseCastSpeed: 0
+  baseAttackSpeed: 0
   bulletCount: 50
 --- !u!1 &1483556880
 GameObject:
@@ -1298,6 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   race: 1
+  stats: {fileID: 0}
   LevelCurrent: 0
   XpCurrent: 0
   XpToLevelUp: 0
@@ -1351,8 +1353,8 @@ MonoBehaviour:
   lightningDamage: 0
   lightDamage: 0
   darkDamage: 0
-  castSpeed: 0
-  attackSpeed: 0
+  baseCastSpeed: 0
+  baseAttackSpeed: 0
   bulletCount: 1
 --- !u!1 &1525999460
 GameObject:

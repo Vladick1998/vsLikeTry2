@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class Unit : MonoBehaviour
 {
 	#region stats
-	 public UnitRace race;
+	public UnitRace race;
+	[SerializeField]
+	public Stats stats;
 
 	#region Xp
 	[Header("Xp")]

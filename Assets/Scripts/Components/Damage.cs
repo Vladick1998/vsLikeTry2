@@ -11,14 +11,15 @@ public class Damage : MonoBehaviour
 	public float lightningDamage;
 	public float lightDamage;
 	public float darkDamage;
-	public float castSpeed;
-	public float attackSpeed;
+	public float baseCastSpeed;
+	public float baseAttackSpeed;
 	public int bulletCount;
+	Stat stat = new Stat();
 	//calculate unit stats + weaponstats
 	public void CalculateAttackDamage(Unit attackerUnit)
 	{
-		attackSpeed = attackerUnit.weapon_1.baseAttackSpeed / (100 + attackerUnit.attackSpeed) * 0.01f;
-		castSpeed = attackerUnit.weapon_1.basecastSpeed / (100 + attackerUnit.castSpeed) * 0.01f;
+		baseAttackSpeed = attackerUnit.weapon_1.baseAttackSpeed;
+		baseCastSpeed = attackerUnit.weapon_1.basecastSpeed;
 		physDamage = (attackerUnit.weapon_1.baseAttackDamage + attackerUnit.attackDmgFlat) + ((attackerUnit.weapon_1.baseAttackDamage + attackerUnit.attackDmgFlat) / 100 * attackerUnit.attackDmgPercent);
 		fireDamage = (attackerUnit.weapon_1.basefireDmgFlat + attackerUnit.fireDmgFlat) + ((attackerUnit.weapon_1.basefireDmgFlat + attackerUnit.fireDmgFlat) / 100 * attackerUnit.elementalDmgPercent);
 		coldDamage = (attackerUnit.weapon_1.basecoldDmgFlat + attackerUnit.coldDmgFlat) + ((attackerUnit.weapon_1.basecoldDmgFlat + attackerUnit.coldDmgFlat) / 100 * attackerUnit.elementalDmgPercent);

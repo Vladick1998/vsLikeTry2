@@ -51,12 +51,26 @@ public class Skill : MonoBehaviour
     }
     public virtual void Cast(Vector3 targetPosition)
     {
-
-    }
-    IEnumerable Colldown()
+		switch (purpose)
+		{
+			case Purpose.Attack:
+				break;
+			case Purpose.Cast:
+				break;
+			case Purpose.Move:
+				break;
+			case Purpose.Buff:
+				break;
+			case Purpose.Heal:
+				break;
+			default:
+				break;
+		}
+	}
+    IEnumerable Delay(float delayTime)
     {
         skillState = UseState.Colldown;
-        yield return new WaitForSeconds(12);
+        yield return new WaitForSeconds(delayTime);
         skillState = UseState.Ready;
     }
 }
